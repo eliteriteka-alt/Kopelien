@@ -1,0 +1,917 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>THE LIGHTER EVENT — Luxury Events & Entertainment</title>
+    <meta name="description" content="We create experiences that last. House Parties, Promo Parties, Private Events & Premium Entertainment in Burundi.">
+    
+    <!-- Google Fonts & Font Awesome Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* --- ROOT VARIABLES --- */
+        :root {
+            --bg-dark: #0a0a0c;
+            --bg-card: rgba(22, 22, 28, 0.65);
+            --bg-card-border: rgba(212, 175, 55, 0.25);
+            --gold-primary: #d4af37;
+            --gold-gradient: linear-gradient(135deg, #f3e5ab 0%, #d4af37 50%, #aa7c11 100%);
+            --text-light: #f5f5f7;
+            --text-muted: #a1a1aa;
+            --glass-bg: rgba(10, 10, 12, 0.75);
+            --transition-smooth: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        /* --- GLOBAL BASE STYLES --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, .brand-font {
+            font-family: 'Cinzel', serif;
+            letter-spacing: 1px;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition-smooth);
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .container {
+            max-width: 1240px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .section-padding {
+            padding: 100px 0;
+        }
+
+        .text-gold {
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto 60px;
+            font-size: 1.05rem;
+        }
+
+        /* --- BUTTONS --- */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 14px 32px;
+            font-weight: 600;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .btn-gold {
+            background: var(--gold-gradient);
+            color: #000;
+            border: none;
+            box-shadow: 0 4px 20px rgba(212, 175, 55, 0.3);
+        }
+
+        .btn-gold:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(212, 175, 55, 0.5);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 1px solid var(--gold-primary);
+            color: var(--text-light);
+        }
+
+        .btn-outline:hover {
+            background: rgba(212, 175, 55, 0.1);
+            border-color: #fff;
+            transform: translateY(-3px);
+        }
+
+        .btn-whatsapp {
+            background: #25D366;
+            color: #fff;
+            border: none;
+        }
+
+        .btn-whatsapp:hover {
+            background: #1eb956;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+        }
+
+        /* --- GLASSMOURPHISM CARD --- */
+        .glass-card {
+            background: var(--bg-card);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid var(--bg-card-border);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: var(--transition-smooth);
+        }
+
+        .glass-card:hover {
+            border-color: rgba(212, 175, 55, 0.6);
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+        }
+
+        /* --- HEADER & NAVIGATION --- */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            transition: var(--transition-smooth);
+            background: transparent;
+            padding: 20px 0;
+        }
+
+        header.scrolled {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.15);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .brand-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .brand-logo img {
+            height: 55px;
+            width: auto;
+            object-fit: contain;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--text-light);
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gold-primary);
+            transition: var(--transition-smooth);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-socials {
+            display: flex;
+            gap: 15px;
+        }
+
+        .nav-socials a {
+            color: var(--text-light);
+            font-size: 1.2rem;
+        }
+
+        .nav-socials a:hover {
+            color: var(--gold-primary);
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+            color: var(--text-light);
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            height: 100vh;
+            min-height: 700px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(to bottom, rgba(10,10,12,0.4), rgba(10,10,12,0.95)), 
+                        url('https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            padding: 0 20px;
+            z-index: 2;
+            animation: fadeIn 1.2s ease-out;
+        }
+
+        .hero-logo {
+            max-width: 220px;
+            margin: 0 auto 30px;
+            filter: drop-shadow(0 10px 20px rgba(0,0,0,0.8));
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            margin-bottom: 40px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* --- ABOUT SECTION --- */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-text h3 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .about-text p {
+            color: var(--text-muted);
+            margin-bottom: 20px;
+            font-size: 1.05rem;
+        }
+
+        .about-quote {
+            border-left: 3px solid var(--gold-primary);
+            padding-left: 20px;
+            font-style: italic;
+            font-size: 1.1rem;
+            color: var(--text-light);
+            margin-top: 30px;
+        }
+
+        .about-image {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid var(--bg-card-border);
+        }
+
+        /* --- CEO SECTION --- */
+        .ceo-section {
+            background: radial-gradient(circle at center, rgba(212, 175, 55, 0.05) 0%, transparent 70%);
+        }
+
+        .ceo-card {
+            display: grid;
+            grid-template-columns: 450px 1fr;
+            gap: 50px;
+            padding: 40px;
+            align-items: center;
+        }
+
+        .ceo-img-wrapper {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            border: 1px solid var(--bg-card-border);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .ceo-img-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .ceo-info h3 {
+            font-size: 2.5rem;
+            margin-bottom: 5px;
+        }
+
+        .ceo-title {
+            color: var(--gold-primary);
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 25px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .ceo-desc {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 30px;
+        }
+
+        /* --- EVENTS SHOWCASE --- */
+        .events-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .event-card-img {
+            height: 220px;
+            width: 100%;
+            object-fit: cover;
+        }
+
+        .event-card-body {
+            padding: 30px;
+        }
+
+        .event-card-body h3 {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+        }
+
+        .event-card-body p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+        }
+
+        /* --- FEATURED EVENT --- */
+        .featured-banner {
+            background: linear-gradient(135deg, rgba(22, 22, 28, 0.9), rgba(10, 10, 12, 0.95)), 
+                        url('https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=1200&q=80') center/cover;
+            border: 1px solid var(--gold-primary);
+            border-radius: 24px;
+            padding: 60px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .event-meta {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin: 25px 0 35px;
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: var(--text-light);
+            font-size: 1.05rem;
+        }
+
+        .meta-item i {
+            color: var(--gold-primary);
+            width: 20px;
+        }
+
+        /* --- GALLERY --- */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .gallery-item {
+            position: relative;
+            height: 280px;
+            border-radius: 15px;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition-smooth);
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            opacity: 0;
+            display: flex;
+            align-items: flex-end;
+            padding: 20px;
+            transition: var(--transition-smooth);
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        /* --- CONTACT SECTION --- */
+        .contact-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 50px;
+        }
+
+        .contact-info-list {
+            margin: 30px 0;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .contact-info-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+        }
+
+        .contact-info-item i {
+            font-size: 1.3rem;
+            color: var(--gold-primary);
+            margin-top: 5px;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .form-group input, 
+        .form-group textarea {
+            width: 100%;
+            padding: 16px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: 10px;
+            color: #fff;
+            font-family: inherit;
+            font-size: 1rem;
+            outline: none;
+            transition: var(--transition-smooth);
+        }
+
+        .form-group input:focus, 
+        .form-group textarea:focus {
+            border-color: var(--gold-primary);
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background: #050507;
+            border-top: 1px solid rgba(212, 175, 55, 0.15);
+            padding: 80px 0 30px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1.5fr;
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .footer-brand img {
+            height: 60px;
+            margin-bottom: 20px;
+        }
+
+        .footer-brand p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            max-width: 320px;
+        }
+
+        .footer-column h4 {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            color: var(--gold-primary);
+        }
+
+        .footer-links {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .footer-links a {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .footer-links a:hover {
+            color: var(--text-light);
+        }
+
+        .copyright {
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+
+        /* --- KEYFRAMES & RESPONSIVE --- */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 992px) {
+            .ceo-card, .featured-banner, .about-grid, .contact-wrapper {
+                grid-template-columns: 1fr;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            .hero h1 { font-size: 2.8rem; }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links, .nav-socials { display: none; }
+            .hamburger { display: block; }
+            .hero h1 { font-size: 2.2rem; }
+            .footer-grid { grid-template-columns: 1fr; }
+            .ceo-card { padding: 20px; }
+            .featured-banner { padding: 30px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER / NAVIGATION -->
+    <header id="header">
+        <div class="container nav-container">
+            <a href="#" class="brand-logo">
+                <img src="ChatGPT Image Aug 13, 2026, 12_18_36 AM.png" alt="THE LIGHTER EVENT Logo">
+            </a>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#events">Events</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#ceo">CEO</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="nav-socials">
+                <a href="https://instagram.com/the_lighter_event" target="_blank" aria-label="Instagram"><i class="fab font-awesome-brands fa-instagram"></i></a>
+                <a href="https://wa.me/25776376121" target="_blank" aria-label="WhatsApp"><i class="fab font-awesome-brands fa-whatsapp"></i></a>
+            </div>
+            <div class="hamburger">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <img src="ChatGPT Image Aug 13, 2026, 12_18_36 AM.png" alt="THE LIGHTER EVENT" class="hero-logo">
+            <h1 class="text-gold">WE CREATE EXPERIENCES THAT LAST.</h1>
+            <p>House Parties • Promo Parties • Private Events</p>
+            <div class="hero-buttons">
+                <a href="#events" class="btn btn-gold">Explore Our Events</a>
+                <a href="#contact" class="btn btn-outline">Contact Us</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section id="about" class="section-padding">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-text">
+                    <h2 class="section-title text-gold" style="text-align: left;">ABOUT THE LIGHTER EVENT</h2>
+                    <p>The Lighter Event is a premier event and entertainment company focused on creating memorable experiences through house parties, promotional events, private parties, and other entertainment experiences.</p>
+                    <p>We craft high-energy, high-end nightlife environments and exclusive party scenes tailored to bring energy, style, and luxury to every client and guest.</p>
+                    <div class="about-quote">
+                        “We bring people together through unforgettable events, great entertainment and unique experiences.”
+                    </div>
+                </div>
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=800&q=80" alt="Atmospheric Event Scene">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MEET THE CEO SECTION -->
+    <section id="ceo" class="section-padding ceo-section">
+        <div class="container">
+            <h2 class="section-title text-gold">MEET THE CEO</h2>
+            <p class="section-subtitle">Visionary Leadership Behind The Brand</p>
+
+            <div class="glass-card ceo-card">
+                <div class="ceo-img-wrapper">
+                    <img src="WhatsApp Image 2026-08-19 at 18.40.25.jpeg" alt="KOP ELIEN — CEO">
+                </div>
+                <div class="ceo-info">
+                    <h3>KOP ELIEN</h3>
+                    <div class="ceo-title">Founder & CEO — The Lighter Event</div>
+                    <p class="ceo-desc">KOP ELIEN is the Founder and CEO of The Lighter Event, leading the company with a vision to create memorable experiences, connect people and build exciting events for the community.</p>
+                    <a href="https://wa.me/25776376121" class="btn btn-gold" target="_blank">
+                        <i class="fab fa-whatsapp"></i> Connect with CEO
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- OUR EVENTS SECTION -->
+    <section id="events" class="section-padding">
+        <div class="container">
+            <h2 class="section-title text-gold">OUR EVENTS</h2>
+            <p class="section-subtitle">Tailored Entertainment & Event Services</p>
+
+            <div class="events-grid">
+                <!-- Card 1 -->
+                <div class="glass-card">
+                    <img src="https://images.unsplash.com/photo-1528605248644-14dd04022da1?auto=format&fit=crop&w=600&q=80" alt="House Parties" class="event-card-img">
+                    <div class="event-card-body">
+                        <h3>House Parties</h3>
+                        <p>Exclusive, high-vibe luxury house party experiences designed with top DJs, lighting, and hospitality.</p>
+                        <a href="#contact" class="btn btn-outline" style="width: 100%;">Learn More</a>
+                    </div>
+                </div>
+                <!-- Card 2 -->
+                <div class="glass-card">
+                    <img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&w=600&q=80" alt="Promo Parties" class="event-card-img">
+                    <div class="event-card-body">
+                        <h3>Promo Parties</h3>
+                        <p>Dynamic brand and promotional parties designed to generate excitement, impact, and maximum social reach.</p>
+                        <a href="#contact" class="btn btn-outline" style="width: 100%;">Learn More</a>
+                    </div>
+                </div>
+                <!-- Card 3 -->
+                <div class="glass-card">
+                    <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=600&q=80" alt="Private Parties" class="event-card-img">
+                    <div class="event-card-body">
+                        <h3>Private Parties</h3>
+                        <p>Bespoke private celebrations catered specifically to your guests with ultimate privacy and luxury touches.</p>
+                        <a href="#contact" class="btn btn-outline" style="width: 100%;">Learn More</a>
+                    </div>
+                </div>
+                <!-- Card 4 -->
+                <div class="glass-card">
+                    <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=600&q=80" alt="Food & Entertainment" class="event-card-img">
+                    <div class="event-card-body">
+                        <h3>Food & Entertainment</h3>
+                        <p>Curated culinary experiences merged with premium musical and live entertainment performances.</p>
+                        <a href="#contact" class="btn btn-outline" style="width: 100%;">Learn More</a>
+                    </div>
+                </div>
+                <!-- Card 5 -->
+                <div class="glass-card">
+                    <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=600&q=80" alt="Special Events" class="event-card-img">
+                    <div class="event-card-body">
+                        <h3>Special Events</h3>
+                        <p>Large-scale celebrations, seasonal bashes, and signature annual festivals curated by our team.</p>
+                        <a href="#contact" class="btn btn-outline" style="width: 100%;">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FEATURED / UPCOMING EVENT -->
+    <section class="section-padding" style="padding-top: 0;">
+        <div class="container">
+            <div class="featured-banner">
+                <div>
+                    <span style="color: var(--gold-primary); text-transform: uppercase; letter-spacing: 2px; font-weight: 600;">Upcoming Featured Experience</span>
+                    <h2 class="brand-font" style="font-size: 2.5rem; margin: 10px 0;">THE LIGHTER NIGHT — VIP EDITION</h2>
+                    <p style="color: var(--text-muted);">Join us for an exclusive night of music, premium social connections, and elevated entertainment.</p>
+                    
+                    <div class="event-meta">
+                        <div class="meta-item"><i class="far fa-calendar-alt"></i> <span>Date: To Be Announced</span></div>
+                        <div class="meta-item"><i class="far fa-clock"></i> <span>Time: 08:00 PM - Late</span></div>
+                        <div class="meta-item"><i class="fas fa-map-marker-alt"></i> <span>Location: Kigobe, Burundi</span></div>
+                        <div class="meta-item"><i class="fas fa-ticket-alt"></i> <span>Passes: VIP Reservation Required</span></div>
+                    </div>
+
+                    <div style="display: flex; gap: 15px; flex-wrap: wrap;">
+                        <a href="#contact" class="btn btn-gold">Get Tickets</a>
+                        <a href="https://wa.me/25776376121?text=Hello%2C%20I%20want%20to%20inquire%20about%20tickets%20for%20the%20featured%20event." class="btn btn-whatsapp" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp Us</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GALLERY SECTION -->
+    <section id="gallery" class="section-padding">
+        <div class="container">
+            <h2 class="section-title text-gold">GALLERY</h2>
+            <p class="section-subtitle">Moments Captured Across Our Exclusive Events</p>
+
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=600&q=80" alt="Party Moment">
+                    <div class="gallery-overlay"><span>Party Moments</span></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=600&q=80" alt="Event Setup">
+                    <div class="gallery-overlay"><span>Event Lighting</span></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1501386761578-eac5c94b800a?auto=format&fit=crop&w=600&q=80" alt="Entertainment">
+                    <div class="gallery-overlay"><span>Live DJ Performance</span></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=600&q=80" alt="Behind the scenes">
+                    <div class="gallery-overlay"><span>Behind The Scenes</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contact" class="section-padding ceo-section">
+        <div class="container">
+            <h2 class="section-title text-gold">GET IN TOUCH</h2>
+            <p class="section-subtitle">Let's Plan Your Next Unforgettable Experience</p>
+
+            <div class="contact-wrapper">
+                <div>
+                    <h3 class="brand-font" style="font-size: 1.8rem; margin-bottom: 10px;">THE LIGHTER EVENT</h3>
+                    <p style="color: var(--text-muted);">Reach out directly to book an event, inquire about tickets, or discuss custom brand partnerships.</p>
+
+                    <div class="contact-info-list">
+                        <div class="contact-info-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <strong>Location</strong>
+                                <p style="color: var(--text-muted);">Kigobe, Kuba Chini, Burundi</p>
+                            </div>
+                        </div>
+                        <div class="contact-info-item">
+                            <i class="fas fa-phone-alt"></i>
+                            <div>
+                                <strong>Phone / WhatsApp</strong>
+                                <p style="color: var(--text-muted);">+257 76 37 61 21</p>
+                            </div>
+                        </div>
+                        <div class="contact-info-item">
+                            <i class="fab fa-instagram"></i>
+                            <div>
+                                <strong>Instagram</strong>
+                                <p style="color: var(--text-muted);">@the_lighter_event</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="https://wa.me/25776376121" class="btn btn-whatsapp" target="_blank">
+                        <i class="fab fa-whatsapp"></i> Chat On WhatsApp
+                    </a>
+                </div>
+
+                <div class="glass-card" style="padding: 30px;">
+                    <form class="contact-form" action="mailto:eliteriteka@gmail.com" method="post" enctype="text/plain">
+                        <div class="form-group">
+                            <input type="text" name="Name" placeholder="Full Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" name="Phone" placeholder="Phone Number" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" name="Email" placeholder="Your Email Address" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea name="Message" rows="5" placeholder="Your Message..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-gold" style="border: none;">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <img src="ChatGPT Image Aug 13, 2026, 12_18_36 AM.png" alt="THE LIGHTER EVENT Logo">
+                    <p>We create experiences that last. Leading luxury event planning and entertainment experiences in Burundi.</p>
+                </div>
+                <div class="footer-column">
+                    <h4>Navigation</h4>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#events">Events</a></li>
+                        <li><a href="#gallery">Gallery</a></li>
+                        <li><a href="#ceo">CEO</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Socials</h4>
+                    <ul class="footer-links">
+                        <li><a href="https://instagram.com/the_lighter_event" target="_blank"><i class="fab fa-instagram"></i> Instagram</a></li>
+                        <li><a href="https://wa.me/25776376121" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Contact Us</h4>
+                    <p style="color: var(--text-muted); font-size: 0.95rem;">
+                        Kigobe, Kuba Chini, Burundi<br>
+                        Phone: +257 76 37 61 21<br>
+                        Email: eliteriteka@gmail.com
+                    </p>
+                </div>
+            </div>
+
+            <div class="copyright">
+                © 2026 The Lighter Event. All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- INTERACTIVITY SCRIPT -->
+    <script>
+        // Header background transition on scroll
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+    </script>
+</body>
+</html>
